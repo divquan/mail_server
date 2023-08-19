@@ -15,13 +15,28 @@ app.get("/health", (req, res) => {
 });
 
 app.post("/send-mail", (req, res) => {
-  const { email, password, message } = req.body;
-  console.log("email: ", email, "password: ", password, "message: ", message);
-  const transporter = useTransporter(email, password);
+  const {
+    senderName,
+    senderAddress,
+    password,
+    recipientAddress,
+    heading,
+    message,
+  } = req.body;
+  console.log(
+    "email: ",
+    senderAddress,
+    "password: ",
+    password,
+    "message: ",
+    message
+  );
+  const transporter = useTransporter(senderAddress, password);
+
   const options = {
-    from: email,
-    to: "divquan@gmail.com",
-    subject: "Send email in Node.JS with Nodemailer using Gmail account",
+    from: `"${senderName}" <${senderAddress}>`,
+    to: recipientAddress,
+    subject: heading,
     text: message,
     html: HTML_TEMPLATE(message),
   };
