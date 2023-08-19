@@ -1,56 +1,48 @@
-# Project Name
+# Simple Web App Readme
 
-Simple Express Email Sender
-
-## Description
-
-This project is a simple Express.js application that provides an API for sending emails using a configured email account. It utilizes the `express` framework to handle HTTP requests and the `nodemailer` library to send emails.
-
-## Features
-
-- Health endpoint: `/health` - A simple endpoint to check the health of the server.
-- Email Sending: `/send-mail` - An endpoint to send emails with specified sender and recipient details, subject, and message.
+This is a simple web app built using Express.js to send emails. It includes an API endpoint to send emails using a provided SMTP server.
 
 ## Installation
 
-1. Clone the repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd <project-directory>`
-3. Install dependencies: `npm install`
+1. Clone this repository.
+2. Navigate to the project directory: `cd simple-web-app`
+3. Install the required dependencies: `npm install`
 
 ## Usage
 
 1. Start the server: `npm start`
-2. Make POST requests to `/send-mail` with the following JSON payload:
+2. Access the API endpoints using a tool like Postman or curl.
 
-   ```json
-   {
-     "senderName": "Your Name",
-     "senderAddress": "your-email@example.com",
-     "password": "your-email-password",
-     "recipientAddress": "recipient@example.com",
-     "heading": "Email Subject",
-     "message": "Email Content"
-   }
+## API Endpoints
 
-The server will send the email using the provided sender's credentials.
-Configuration
-Before running the server, make sure to configure the following:
+### 1. Send Email
 
-senderAddress: Your email address for sending emails.
-password: Password for the email account.
-recipientAddress: Recipient's email address.
-heading: Subject of the email.
-message: Content of the email.
-Dependencies
-express: Web application framework for handling HTTP requests.
-nodemailer: Library for sending emails using various transports.
-Disclaimer
-This project is intended for educational and demonstration purposes only. It is recommended to use secure practices when handling email credentials and sensitive information.
+**Endpoint:** POST `/send-mail`
 
-License
-This project is licensed under the MIT License.
+**Request Body:**
+```json
+{
+  "senderName": "Your Name",
+  "senderAddress": "your-email@example.com",
+  "password": "your-email-password",
+  "recipientAddress": "recipient@example.com",
+  "heading": "Email Subject",
+  "message": "Email Body"
+}
+```
 
-sql
-Copy code
 
-Feel free to copy and paste this Markdown content into your `README.md` file.
+## Response
+
+### 1. Send Email
+
+**Endpoint:** POST `/send-mail`
+
+**Response:** OK!
+
+### 2. Health Check
+
+**Endpoint:** GET `/health`
+
+**Response:** OK! Status 200
+
